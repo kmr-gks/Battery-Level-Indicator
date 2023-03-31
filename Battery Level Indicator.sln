@@ -3,36 +3,44 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battery Level Indicator", "Battery Level Indicator\Battery Level Indicator.csproj", "{B4971905-66B7-4AFE-B898-7DE49598E6E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battery Level Indicator", "Battery Level Indicator\Battery Level Indicator.csproj", "{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
 		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
 		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Debug|ARM64.Build.0 = Debug|ARM64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Debug|ARM64.Deploy.0 = Debug|ARM64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Debug|x64.ActiveCfg = Debug|x64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Debug|x64.Build.0 = Debug|x64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Debug|x64.Deploy.0 = Debug|x64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Debug|x86.ActiveCfg = Debug|x86
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Debug|x86.Build.0 = Debug|x86
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Debug|x86.Deploy.0 = Debug|x86
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Release|ARM64.ActiveCfg = Release|ARM64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Release|ARM64.Build.0 = Release|ARM64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Release|ARM64.Deploy.0 = Release|ARM64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Release|x64.ActiveCfg = Release|x64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Release|x64.Build.0 = Release|x64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Release|x64.Deploy.0 = Release|x64
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Release|x86.ActiveCfg = Release|x86
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Release|x86.Build.0 = Release|x86
-		{B4971905-66B7-4AFE-B898-7DE49598E6E9}.Release|x86.Deploy.0 = Release|x86
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|ARM.Build.0 = Debug|ARM
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|ARM.Deploy.0 = Debug|ARM
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|ARM64.Build.0 = Debug|ARM64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|x64.ActiveCfg = Debug|x64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|x64.Build.0 = Debug|x64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|x64.Deploy.0 = Debug|x64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|x86.ActiveCfg = Debug|x86
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|x86.Build.0 = Debug|x86
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Debug|x86.Deploy.0 = Debug|x86
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|ARM.ActiveCfg = Release|ARM
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|ARM.Build.0 = Release|ARM
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|ARM.Deploy.0 = Release|ARM
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|ARM64.ActiveCfg = Release|ARM64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|ARM64.Build.0 = Release|ARM64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|ARM64.Deploy.0 = Release|ARM64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|x64.ActiveCfg = Release|x64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|x64.Build.0 = Release|x64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|x64.Deploy.0 = Release|x64
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|x86.ActiveCfg = Release|x86
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|x86.Build.0 = Release|x86
+		{FCC6B4AA-8D56-449A-8F92-E439A6D70F3D}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
