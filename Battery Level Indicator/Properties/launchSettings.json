@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Battery Level Indicator (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Battery Level Indicator (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
