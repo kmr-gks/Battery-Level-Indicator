@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
+using Windows.Devices.Power;
 using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
@@ -18,6 +19,7 @@ namespace Battery_Level_Indicator
 	{
 		// マニフェストで指定したTaskId
 		const string StartUpTaskId = "blistartupId";
+		private BatteryReport battery;
 
 		public MainPage()
 		{
@@ -30,6 +32,43 @@ namespace Battery_Level_Indicator
 			{
 				toggleSwitchEnable.IsOn = (bool)container.Values[toggleSwitchEnable.Name];
 			}
+			this.Loaded += MainPage_Loaded;
+		}
+
+		private async void MainPage_Loaded(object sender, RoutedEventArgs e)
+		{
+			// バッテリー情報の取得
+			var aggregateBattery = Battery.AggregateBattery;
+			battery = aggregateBattery.GetReport();
+
+			// バッテリー情報の表示
+			UpdateUI(battery);
+
+			// バッテリー情報の更新を監視
+			var batteryReportHandler = new BatteryReportHandler();
+			batteryReportHandler.ReportUpdated += BatteryReportHandler_ReportUpdated;
+			await batteryReportHandler.Start();
+		}
+
+		private async void BatteryReportHandler_ReportUpdated(BatteryReport report)
+		{
+			// バッテリー情報の更新時にUIを更新
+			battery = report;
+			await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>{
+				UpdateUI(report);
+			});
+		}
+
+		private void UpdateUI(BatteryReport report)
+		{
+			var remainingCapacity = report.RemainingCapacityInMilliwattHours;
+			var fullCapacity = report.FullChargeCapacityInMilliwattHours;
+			var percentage = (double)remainingCapacity / fullCapacity * 100;
+			BatteryStatusTextBlock.Text = $"Battery: {percentage:F}%";
+		}
+
+		public ref TextBlock getBatteryStatusTextBlock(){
+			return ref BatteryStatusTextBlock;
 		}
 
 		public static void puts(string str)
@@ -101,16 +140,20 @@ namespace Battery_Level_Indicator
 		{
 
 			//残量表示を有効にする
-			Frame rootFrame = Window.Current.Content as Frame;
-			if (rootFrame == null)
-			{
-				rootFrame = new Frame();
-				Window.Current.Content = rootFrame;
-			}
-			string payload = string.Empty;
-			rootFrame.Navigate(typeof(parcent), payload);
-			Window.Current.Activate();
+			CoreApplicationView newView = CoreApplication.CreateNewView();
 
+			int id = 0;
+			await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+			{
+				var frame = new Frame();
+				//frame.Navigate(typeof(AnotherPage));
+
+				Window.Current.Content = frame;
+				Window.Current.Activate();
+				id = ApplicationView.GetForCurrentView().Id;
+			});
+
+			await ApplicationViewSwitcher.TryShowAsStandaloneAsync(id);
 			//ウィンドウ最前面表示
 			//await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay);
 		}

@@ -92,10 +92,9 @@ namespace Battery_Level_Indicator
 				var startupArgs = args as StartupTaskActivatedEventArgs;
 				payload = startupArgs.TaskId;
 				// 自動起動時に行う処理があればここに
-				MainPage.createIndicator();
 			}
 
-			rootFrame.Navigate(typeof(MainPage), payload);
+			rootFrame.Navigate(typeof(parcent), payload);
 			Window.Current.Activate();
 		}
 
