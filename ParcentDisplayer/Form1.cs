@@ -4,6 +4,11 @@ namespace ParcentDisplayer
 {
 	public partial class ParcentForm : Form
 	{
+		public ParcentForm(int x, int y) : this()
+		{
+			this.StartPosition = FormStartPosition.Manual;
+			this.Location = new Point(x, y);
+		}
 		public ParcentForm()
 		{
 			InitializeComponent();
@@ -46,7 +51,7 @@ namespace ParcentDisplayer
 			}
 		}
 
-		private void puts(string str)
+		public static void puts(string str)
 		{
 			System.Diagnostics.Debug.WriteLine(str);
 		}

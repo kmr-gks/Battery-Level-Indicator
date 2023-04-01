@@ -67,6 +67,7 @@
 			MinimizeBox = false;
 			MinimumSize = new Size(40, 20);
 			Name = "ParcentForm";
+			ShowInTaskbar = false;
 			TopMost = true;
 			ResumeLayout(false);
 			PerformLayout();
