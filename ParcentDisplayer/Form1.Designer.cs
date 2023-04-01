@@ -29,37 +29,31 @@
 		private void InitializeComponent()
 		{
 			textBoxParcent = new TextBox();
-			button1 = new Button();
 			SuspendLayout();
 			// 
 			// textBoxParcent
 			// 
-			textBoxParcent.Location = new Point(28, 12);
+			textBoxParcent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			textBoxParcent.Location = new Point(0, 0);
+			textBoxParcent.Margin = new Padding(0);
 			textBoxParcent.Name = "textBoxParcent";
 			textBoxParcent.ReadOnly = true;
-			textBoxParcent.Size = new Size(100, 23);
+			textBoxParcent.Size = new Size(293, 23);
 			textBoxParcent.TabIndex = 0;
 			textBoxParcent.Text = "%%%";
+			textBoxParcent.TextAlign = HorizontalAlignment.Center;
+			textBoxParcent.TextChanged += textBoxParcent_TextChanged;
 			// 
-			// button1
-			// 
-			button1.Location = new Point(161, 94);
-			button1.Name = "button1";
-			button1.Size = new Size(75, 23);
-			button1.TabIndex = 1;
-			button1.Text = "button1";
-			button1.UseVisualStyleBackColor = true;
-			button1.Click += button1_Click;
-			// 
-			// Form1
+			// ParcentForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(359, 211);
-			Controls.Add(button1);
+			ClientSize = new Size(353, 214);
+			ControlBox = false;
 			Controls.Add(textBoxParcent);
-			Name = "Form1";
-			Text = "Form1";
+			FormBorderStyle = FormBorderStyle.FixedSingle;
+			Name = "ParcentForm";
+			TopMost = true;
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -67,6 +61,5 @@
 		#endregion
 
 		private TextBox textBoxParcent;
-		private Button button1;
 	}
 }
