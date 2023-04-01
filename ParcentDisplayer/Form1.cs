@@ -1,8 +1,4 @@
-
-using System.Windows.Forms;
 using Windows.Devices.Power;
-using Windows.System;
-using Windows.System.Power;
 
 namespace ParcentDisplayer
 {
@@ -11,12 +7,29 @@ namespace ParcentDisplayer
 		public ParcentForm()
 		{
 			InitializeComponent();
-			var aggb = Battery.AggregateBattery;
-			aggb.ReportUpdated += Battery_ReportUpdated;
 
-			//UIƒXƒŒƒbƒh‚©‚çŒÄ‚Ño‚·‚Æ—áŠO‚ª”­¶‚·‚é
-			//setTextParcent();
-			textBoxParcent.Text = (int)(SystemInformation.PowerStatus.BatteryLifePercent * 100) + "%";
+			//å³ã‚¯ãƒªãƒƒã‚¯ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’ç™»éŒ²
+			contextMenuMain.Items.Add("Refresh", null, (a, b) => { this.setTextParcent(); });
+			contextMenuMain.Items.Add("Exit", null, (a, b) => { this.Close(); });
+
+			Battery.AggregateBattery.ReportUpdated += Battery_ReportUpdated;
+
+			//UIã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰å‘¼ã³å‡ºã™ã¨ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹
+			try
+			{
+				PowerStatus powerStatus = SystemInformation.PowerStatus;
+				string text = (int)(powerStatus.BatteryLifePercent * 100) + "%";
+				labelParcent.Text = text;
+				/*
+				var g = CreateGraphics();
+				g.DrawString(text, new Font("MS UI Gothic", 10), Brushes.Black, 0, 0);
+				g.Dispose();
+				*/
+			}
+			catch (Exception ex)
+			{
+				puts(ex.Message + ex.Source);
+			}
 		}
 
 		private void Battery_ReportUpdated(Battery sender, object args)
@@ -38,15 +51,21 @@ namespace ParcentDisplayer
 			System.Diagnostics.Debug.WriteLine(str);
 		}
 
-		private void setTextParcent(string str = null)
+		private void setTextParcent()
 		{
 
 			PowerStatus powerStatus = SystemInformation.PowerStatus;
-			Invoke((MethodInvoker)delegate { textBoxParcent.Text = powerStatus.BatteryLifePercent * 100 + "%" + str; });
-		}
-
-		private void textBoxParcent_TextChanged(object sender, EventArgs e)
-		{
+			string text = (int)(powerStatus.BatteryLifePercent * 100) + "%";
+			Invoke((MethodInvoker)delegate
+			{
+				labelParcent.Text = text;
+				//ãƒ•ã‚©ãƒ¼ãƒ ã«ç›´æ¥æç”»ã™ã‚‹
+				/*
+				var g = CreateGraphics();
+				g.DrawString(text, new Font("MS UI Gothic", 10), Brushes.Black, 0, 0);
+				g.Dispose();
+				*/
+			});
 
 		}
 	}

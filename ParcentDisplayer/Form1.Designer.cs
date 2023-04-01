@@ -28,30 +28,44 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			textBoxParcent = new TextBox();
+			components = new System.ComponentModel.Container();
+			labelParcent = new Label();
+			contextMenuMain = new ContextMenuStrip(components);
 			SuspendLayout();
 			// 
-			// textBoxParcent
+			// labelParcent
 			// 
-			textBoxParcent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-			textBoxParcent.Location = new Point(0, 0);
-			textBoxParcent.Margin = new Padding(0);
-			textBoxParcent.Name = "textBoxParcent";
-			textBoxParcent.ReadOnly = true;
-			textBoxParcent.Size = new Size(293, 23);
-			textBoxParcent.TabIndex = 0;
-			textBoxParcent.Text = "%%%";
-			textBoxParcent.TextAlign = HorizontalAlignment.Center;
-			textBoxParcent.TextChanged += textBoxParcent_TextChanged;
+			labelParcent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			labelParcent.AutoSize = true;
+			labelParcent.ContextMenuStrip = contextMenuMain;
+			labelParcent.Location = new Point(0, 0);
+			labelParcent.Margin = new Padding(0);
+			labelParcent.MaximumSize = new Size(40, 20);
+			labelParcent.MinimumSize = new Size(40, 20);
+			labelParcent.Name = "labelParcent";
+			labelParcent.Size = new Size(40, 20);
+			labelParcent.TabIndex = 0;
+			labelParcent.Text = "label1";
+			labelParcent.TextAlign = ContentAlignment.MiddleCenter;
+			// 
+			// contextMenuMain
+			// 
+			contextMenuMain.Name = "contextMenuStrip2";
+			contextMenuMain.Size = new Size(61, 4);
 			// 
 			// ParcentForm
 			// 
-			AutoScaleDimensions = new SizeF(7F, 15F);
-			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(353, 214);
+			AutoScaleMode = AutoScaleMode.None;
+			BackColor = Color.White;
+			ClientSize = new Size(40, 20);
+			ContextMenuStrip = contextMenuMain;
 			ControlBox = false;
-			Controls.Add(textBoxParcent);
-			FormBorderStyle = FormBorderStyle.FixedSingle;
+			Controls.Add(labelParcent);
+			FormBorderStyle = FormBorderStyle.None;
+			MaximizeBox = false;
+			MaximumSize = new Size(40, 20);
+			MinimizeBox = false;
+			MinimumSize = new Size(40, 20);
 			Name = "ParcentForm";
 			TopMost = true;
 			ResumeLayout(false);
@@ -60,6 +74,7 @@
 
 		#endregion
 
-		private TextBox textBoxParcent;
+		private Label labelParcent;
+		private ContextMenuStrip contextMenuMain;
 	}
 }
