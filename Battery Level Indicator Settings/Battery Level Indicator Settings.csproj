@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<OutputType>WinExe</OutputType>
+	 <!--C#でUWP用APIを使用するためにフレームワークを変更-->
+	 <!-- https://learn.microsoft.com/ja-jp/windows/apps/desktop/modernize/desktop-to-uwp-enhance -->
+	<TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+	<RootNamespace>Battery_Level_Indicator_Settings</RootNamespace>
+	<Nullable>enable</Nullable>
+	<UseWindowsForms>true</UseWindowsForms>
+	<ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>
