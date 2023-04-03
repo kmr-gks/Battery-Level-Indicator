@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Windows.ApplicationModel;
+using Windows.Storage;
+using Windows.UI.Popups;
 
 namespace Battery_Level_Indicator_Settings
 {
 	public partial class Settings : Form
 	{
+		Properties.Settings data=Properties.Settings.Default;
+		// マニフェストで指定したTaskId
+		private const string StartUpTaskId = "blisstartupId";
 		public Settings()
 		{
 			InitializeComponent();
+
+			//UIの初期化
+			//自動起動チェックボックスの状態を読み込む
+			checkBoxAutostart.Checked = data.autostart;
 		}
 
-		private void checkBoxAutostart_CheckedChanged(object sender, EventArgs e)
+		private async void checkBoxAutostart_CheckedChanged(object sender, EventArgs e)
 		{
-
+			data.autostart= checkBoxAutostart.Checked;
+			data.Save();
 		}
 
 		private void buttonIndicatorStart_Click(object sender, EventArgs e)
