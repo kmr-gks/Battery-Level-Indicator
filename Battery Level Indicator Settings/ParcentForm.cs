@@ -4,6 +4,8 @@ namespace Battery_Level_Indicator_Settings
 {
 	public partial class ParcentForm : Form
 	{
+		static Properties.Settings data = Properties.Settings.Default;
+		public ParcentForm():this(data.indicatorX, data.indicatorY){}
 		public ParcentForm(int x, int y)
 		{
 			InitializeComponent();

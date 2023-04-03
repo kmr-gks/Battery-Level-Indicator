@@ -34,5 +34,29 @@ namespace Battery_Level_Indicator_Settings.Properties {
                 this["autostart"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int indicatorX {
+            get {
+                return ((int)(this["indicatorX"]));
+            }
+            set {
+                this["indicatorX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int indicatorY {
+            get {
+                return ((int)(this["indicatorY"]));
+            }
+            set {
+                this["indicatorY"] = value;
+            }
+        }
     }
 }

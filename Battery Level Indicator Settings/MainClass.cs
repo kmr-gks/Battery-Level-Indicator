@@ -16,13 +16,18 @@ namespace Battery_Level_Indicator_Settings
 			ApplicationConfiguration.Initialize();
 			if (args.Length == 0 )
 			{
-				//ˆø”‚È‚µ:İ’è‰æ–Ê
+				//å¼•æ•°ãªã—:è¨­å®šç”»é¢
 				mainApplicationContext.MainForm = new Settings();
+				Application.Run(mainApplicationContext);
+			}
+			else if (args.Length==1){
+				//å¼•æ•°1å€‹:æ®‹é‡è¡¨ç¤ºé–‹å§‹
+				mainApplicationContext.MainForm=new ParcentForm();
 				Application.Run(mainApplicationContext);
 			}
 			else if (args.Length == 2)
 			{
-				//ˆø”‚ª”š2ŒÂ:c—Ê•\¦
+				//å¼•æ•°ãŒæ•°å­—2å€‹:æ®‹é‡è¡¨ç¤º
 				try
 				{
 					var x = int.Parse(args[0]);
