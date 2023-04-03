@@ -1,4 +1,5 @@
-﻿using Windows.ApplicationModel;
+﻿using System.Runtime.InteropServices;
+using Windows.ApplicationModel;
 using Windows.Storage;
 using Windows.UI.Popups;
 
@@ -26,13 +27,50 @@ namespace Battery_Level_Indicator_Settings
 		}
 
 
-		private async void checkBoxAutostart_CheckedChanged(object sender, EventArgs e)
+		private void checkBoxAutostart_CheckedChanged(object sender, EventArgs e)
 		{
 			data.autostart = checkBoxAutostart.Checked;
+			var startupDir = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+
+			var lnkPath = startupDir + "\\Battery Level Indicator.lnk";
 			if (checkBoxAutostart.Checked)
 			{
 				//スタートアップに登録
-				// StartupTaskオブジェクトを得る
+				//https://cammy.co.jp/technical/c_shortcut/
+
+				var targetPath = Application.ExecutablePath;
+
+				// WshShellを作成
+				var t = Type.GetTypeFromCLSID(new Guid("72C24DD5-D70A-438B-8A42-98424B88AFB8"));
+				dynamic shell = Activator.CreateInstance(t);
+
+				//WshShortcutを作成
+				var shortcut = shell.CreateShortcut(lnkPath);
+
+				//リンク先
+				shortcut.TargetPath = targetPath;
+				//アイコンのパス
+				shortcut.IconLocation = Application.ExecutablePath + ",0";
+
+				// 引数
+				//shortcut.Arguments = "/a /b /c";
+				// 作業フォルダ
+				shortcut.WorkingDirectory = Application.StartupPath;
+				// 実行時の大きさ 1が通常、3が最大化、7が最小化
+				shortcut.WindowStyle = 1;
+				// コメント
+				shortcut.Description = "Battery Level Indicator Auto-start";
+
+				//ショートカットを作成
+				shortcut.Save();
+
+				//後始末
+				Marshal.FinalReleaseComObject(shortcut);
+				Marshal.FinalReleaseComObject(shell);
+			}
+			else
+			{
+				File.Delete(lnkPath);
 			}
 		}
 
@@ -71,19 +109,19 @@ namespace Battery_Level_Indicator_Settings
 			if (radioButton.Text == radioButtonLeftBottom.Text)
 			{
 				data.indicatorX = area.Left;
-				data.indicatorY = area.Bottom-controlHeight;
+				data.indicatorY = area.Bottom - controlHeight;
 			}
 			else
 			if (radioButton.Text == radioButtonRightTop.Text)
 			{
-				data.indicatorX = area.Right-controlWidth;
+				data.indicatorX = area.Right - controlWidth;
 				data.indicatorY = area.Top;
 			}
 			else
 			if (radioButton.Text == radioButtonRightBottom.Text)
 			{
-				data.indicatorX = area.Right- controlWidth;
-				data.indicatorY = area.Bottom-controlHeight;
+				data.indicatorX = area.Right - controlWidth;
+				data.indicatorY = area.Bottom - controlHeight;
 			}
 			if (radioButton.Text == radioButtonPosCustom.Text)
 			{

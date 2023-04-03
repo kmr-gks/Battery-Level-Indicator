@@ -75,7 +75,7 @@
 			groupBoxPos.Controls.Add(radioButtonLeftTop);
 			groupBoxPos.Location = new Point(12, 66);
 			groupBoxPos.Name = "groupBoxPos";
-			groupBoxPos.Size = new Size(273, 242);
+			groupBoxPos.Size = new Size(273, 158);
 			groupBoxPos.TabIndex = 4;
 			groupBoxPos.TabStop = false;
 			groupBoxPos.Text = "Indicator Position";
@@ -164,12 +164,14 @@
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(483, 339);
+			ClientSize = new Size(297, 231);
 			Controls.Add(groupBoxPos);
 			Controls.Add(buttonIndicatorStart);
 			Controls.Add(checkBoxAutostart);
+			MaximizeBox = false;
+			MinimizeBox = false;
 			Name = "Settings";
-			Text = "Settings";
+			Text = "Battery Level Indicator Settings";
 			FormClosed += Settings_FormClosed;
 			groupBoxPos.ResumeLayout(false);
 			groupBoxPos.PerformLayout();
