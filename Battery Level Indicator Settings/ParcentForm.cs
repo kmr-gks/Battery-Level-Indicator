@@ -4,9 +4,27 @@ namespace Battery_Level_Indicator_Settings
 {
 	public partial class ParcentForm : Form
 	{
-		static Properties.Settings data = Properties.Settings.Default;
-		public ParcentForm():this(data.indicatorX, data.indicatorY){}
-		public ParcentForm(int x, int y)
+		private static ParcentForm instance = null;
+		private static Properties.Settings data = Properties.Settings.Default;
+
+		//フォームの二重起動を阻止する コンストラクタの代わり
+		public static ParcentForm Create(int x, int y)
+		{
+			if (instance != null)
+			{
+				//Close()すると例外
+				instance.Hide();
+			}
+			instance = new ParcentForm(x, y);
+			return instance;
+		}
+
+		public static ParcentForm Create()
+		{
+			return Create(data.indicatorX, data.indicatorY);
+		}
+
+		private ParcentForm(int x, int y)
 		{
 			InitializeComponent();
 
@@ -26,11 +44,6 @@ namespace Battery_Level_Indicator_Settings
 				PowerStatus powerStatus = SystemInformation.PowerStatus;
 				string text = (int)(powerStatus.BatteryLifePercent * 100) + "%";
 				labelParcent.Text = text;
-				/*
-				var g = CreateGraphics();
-				g.DrawString(text, new Font("MS UI Gothic", 10), Brushes.Black, 0, 0);
-				g.Dispose();
-				*/
 			}
 			catch (Exception ex)
 			{
@@ -57,20 +70,18 @@ namespace Battery_Level_Indicator_Settings
 			System.Diagnostics.Debug.WriteLine(str);
 		}
 
+		public static void showException(Exception exception)
+		{
+			MessageBox.Show(exception.Message + "\n" + exception.StackTrace);
+		}
+
 		private void setTextParcent()
 		{
-
 			PowerStatus powerStatus = SystemInformation.PowerStatus;
 			string text = (int)(powerStatus.BatteryLifePercent * 100) + "%";
 			Invoke((MethodInvoker)delegate
 			{
 				labelParcent.Text = text;
-				//フォームに直接描画する
-				/*
-				var g = CreateGraphics();
-				g.DrawString(text, new Font("MS UI Gothic", 10), Brushes.Black, 0, 0);
-				g.Dispose();
-				*/
 			});
 
 		}

@@ -58,5 +58,41 @@ namespace Battery_Level_Indicator_Settings.Properties {
                 this["indicatorY"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("null")]
+        public string radioPosSelect {
+            get {
+                return ((string)(this["radioPosSelect"]));
+            }
+            set {
+                this["radioPosSelect"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal customX {
+            get {
+                return ((decimal)(this["customX"]));
+            }
+            set {
+                this["customX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal customY {
+            get {
+                return ((decimal)(this["customY"]));
+            }
+            set {
+                this["customY"] = value;
+            }
+        }
     }
 }

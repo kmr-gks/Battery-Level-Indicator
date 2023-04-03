@@ -22,7 +22,7 @@ namespace Battery_Level_Indicator_Settings
 			}
 			else if (args.Length==1){
 				//引数1個:残量表示開始
-				mainApplicationContext.MainForm=new ParcentForm();
+				mainApplicationContext.MainForm=ParcentForm.Create();
 				Application.Run(mainApplicationContext);
 			}
 			else if (args.Length == 2)
@@ -32,7 +32,7 @@ namespace Battery_Level_Indicator_Settings
 				{
 					var x = int.Parse(args[0]);
 					var y = int.Parse(args[1]);
-					mainApplicationContext.MainForm = new ParcentForm(x, y);
+					mainApplicationContext.MainForm = ParcentForm.Create(x, y);
 					Application.Run(mainApplicationContext);
 				}
 				catch (Exception)
