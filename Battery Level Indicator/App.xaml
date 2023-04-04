@@ -9,6 +9,7 @@
 	WinUIを使用するにはコメント解除(ただしxamlのデザイナ画面が表示されなくなる)
 	-->
 	
+	<!--
 	<Application.Resources>
 		<controls:XamlControlsResources>
 
@@ -16,5 +17,6 @@
 			</controls:XamlControlsResources.MergedDictionaries>
 		</controls:XamlControlsResources>
 	</Application.Resources>
+	-->
 
 </Application>

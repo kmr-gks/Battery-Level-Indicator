@@ -53,7 +53,7 @@ namespace Battery_Level_Indicator_Settings
 				shortcut.IconLocation = Application.ExecutablePath + ",0";
 
 				// 引数
-				//shortcut.Arguments = "/a /b /c";
+				shortcut.Arguments = "/indicator";
 				// 作業フォルダ
 				shortcut.WorkingDirectory = Application.StartupPath;
 				// 実行時の大きさ 1が通常、3が最大化、7が最小化
@@ -140,7 +140,7 @@ namespace Battery_Level_Indicator_Settings
 		private void numericPos_ValueChanged(object sender, EventArgs e)
 		{
 			var box = sender as NumericUpDown;
-			if (box == null) return;
+			if (box == null || !radioButtonPosCustom.Checked) return;
 			if (box.Name == numericPosX.Name)
 			{
 				data.customX = box.Value;
@@ -151,6 +151,11 @@ namespace Battery_Level_Indicator_Settings
 				data.customY = (int)box.Value;
 				data.indicatorY = (int)box.Value;
 			}
+		}
+
+		private void buttonAboutStartup_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("If the checkbox is on, the Indicator runs at Windows startup, and a shortcut will be created in\n"+Environment.GetFolderPath(Environment.SpecialFolder.Startup), "About startup");
 		}
 	}
 }

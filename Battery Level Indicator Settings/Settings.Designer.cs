@@ -38,6 +38,7 @@
 			radioButtonRightTop = new RadioButton();
 			radioButtonLeftBottom = new RadioButton();
 			radioButtonLeftTop = new RadioButton();
+			buttonAboutStartup = new Button();
 			groupBoxPos.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numericPosY).BeginInit();
 			((System.ComponentModel.ISupportInitialize)numericPosX).BeginInit();
@@ -160,11 +161,22 @@
 			radioButtonLeftTop.UseVisualStyleBackColor = true;
 			radioButtonLeftTop.CheckedChanged += radioButtonPosition_CheckedChanged;
 			// 
+			// buttonAboutStartup
+			// 
+			buttonAboutStartup.Location = new Point(193, 37);
+			buttonAboutStartup.Name = "buttonAboutStartup";
+			buttonAboutStartup.Size = new Size(92, 23);
+			buttonAboutStartup.TabIndex = 5;
+			buttonAboutStartup.Text = "About startup";
+			buttonAboutStartup.UseVisualStyleBackColor = true;
+			buttonAboutStartup.Click += buttonAboutStartup_Click;
+			// 
 			// Settings
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(297, 231);
+			Controls.Add(buttonAboutStartup);
 			Controls.Add(groupBoxPos);
 			Controls.Add(buttonIndicatorStart);
 			Controls.Add(checkBoxAutostart);
@@ -193,5 +205,6 @@
 		private RadioButton radioButtonPosCustom;
 		private NumericUpDown numericPosX;
 		private NumericUpDown numericPosY;
+		private Button buttonAboutStartup;
 	}
 }
