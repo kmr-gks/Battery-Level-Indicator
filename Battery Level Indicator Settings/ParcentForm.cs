@@ -75,6 +75,7 @@ namespace Battery_Level_Indicator_Settings
 			MessageBox.Show(exception.Message + "\n" + exception.StackTrace);
 		}
 
+		//表示している残量の数値を更新
 		private void setTextParcent()
 		{
 			PowerStatus powerStatus = SystemInformation.PowerStatus;
@@ -83,7 +84,9 @@ namespace Battery_Level_Indicator_Settings
 			{
 				labelParcent.Text = text;
 			});
-
+			//TopMost = false;
+			//Thread.Sleep(50);
+			TopMost = true;
 		}
 	}
 }

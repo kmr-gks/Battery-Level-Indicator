@@ -9,7 +9,7 @@
   <Identity
     Name="6dcda48e-0326-43c4-b57c-f6ced11ae70b"
     Publisher="CN=gukos"
-    Version="1.0.0.0" />
+    Version="1.0.8.0" />
 
   <Properties>
     <DisplayName>Battery Level Indicator (pack)</DisplayName>
