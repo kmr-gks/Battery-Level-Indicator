@@ -14,6 +14,13 @@ namespace Battery_Level_Indicator_Settings
 			// To customize application configuration such as set high DPI settings or default font,
 			// see https://aka.ms/applicationconfiguration.
 			ApplicationConfiguration.Initialize();
+			//バッテリーがあるか確認する。ない場合は終了する。
+			var batteryChargeStatus=SystemInformation.PowerStatus.BatteryChargeStatus;
+			if (batteryChargeStatus == BatteryChargeStatus.NoSystemBattery||batteryChargeStatus==BatteryChargeStatus.Unknown)
+			{
+				MessageBox.Show("Cannot find battery.","Error");
+				return -1;
+			}
 			if (args.Length == 0 )
 			{
 				//引数なし:設定画面
